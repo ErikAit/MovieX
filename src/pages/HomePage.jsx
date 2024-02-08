@@ -28,7 +28,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className='Home mt-[60px]'>
+    <div className='Home my-[60px]'>
       <h2 className='font-[700] text-[40px] text-black text-center'>Most popular films</h2>
       <div className='film-card-contaier grid grid-cols-4 place-items-center mt-[30px]'>
         {
