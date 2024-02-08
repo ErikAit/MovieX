@@ -6,15 +6,15 @@ export default function Footer() {
     <footer className='footer w-full h-[250px] bg-main px-[130px] flex items-center justify-between'>
       <div className='flex gap-[20px]'>
         <a href="#">
-          <i class='bx bxl-instagram-alt text-[40px] text-black'></i>
+          <i className='bx bxl-instagram-alt text-[40px] text-black'></i>
         </a>
 
         <a href="#">
-          <i class='bx bxl-facebook-circle text-[40px] text-black'></i>
+          <i className='bx bxl-facebook-circle text-[40px] text-black'></i>
         </a>
 
         <a href="#">
-          <i class='bx bxl-telegram text-[40px] text-black'></i>
+          <i className='bx bxl-telegram text-[40px] text-black'></i>
         </a>
       </div>
 
