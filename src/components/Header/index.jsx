@@ -4,7 +4,7 @@ import FilmImage from './static-films/FilmImage'
 
 export default function Header() {
   return (
-    <header className='header w-[1920px] h-[1080px] bg-header px-[130px]'>
+    <header className={`header w-[1920px] h-[${location.href == 'http://localhost:5173/' ? 1080 : 0}px] bg-header px-[130px]`}>
       <div className='header-top flex items-center justify-between py-[100px]'>
         <div>
           <Link to="/">
@@ -20,14 +20,21 @@ export default function Header() {
         </div>
       </div>
 
-      <div className='static-films-container'>
-        <FilmImage />
-      </div>
+      {
+        location.href == 'http://localhost:5173/'
+          ? (
+            <div>
+              <div className='static-films-container'>
+                <FilmImage />
+              </div>
 
-      <div className="content mt-[45px]">
-        <h2 className='text-main text-[30px] font-[600] mb-[45px]'>Watch everywhere.</h2>
-        <span className='text-[24px] text-white font-[500]'>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV without paying more.</span>
-      </div>
+              <div className="content mt-[45px]">
+                <h2 className='text-main text-[30px] font-[600] mb-[45px]'>Watch everywhere.</h2>
+                <span className='text-[24px] text-white font-[500]'>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV without paying more.</span>
+              </div>
+            </div>
+          ) : null
+      }
     </header >
   )
 }
