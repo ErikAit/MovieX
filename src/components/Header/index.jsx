@@ -17,24 +17,9 @@ export default function Header() {
         </div>
       </div>
 
-      <div className='static-films-container flex justify-center gap-[20px]'>
+      <div className='static-films-container'>
         <FilmImage />
       </div>
-
-      {/* <div className='static-films-container flex justify-center gap-[20px]'>
-        <div className='relative'>
-          <div className='w-[820px] h-[500px] rounded-[30px] border-main border-[2px]'></div>
-          <button className='text-black bg-main font-[600] w-[160px] h-[60px] rounded-[50px] absolute left-[620px] top-[400px]'>Watch now</button>
-        </div>
-
-        <div>
-          <div className='w-[400px] h-[500px] rounded-[30px] border-main border-[2px]'></div>
-        </div>
-
-        <div>
-          <div className='w-[400px] h-[500px] rounded-[30px] border-main border-[2px]'></div>
-        </div>
-      </div> */}
 
       <div className="content mt-[45px]">
         <h2 className='text-main text-[30px] font-[600] mb-[45px]'>Watch everywhere.</h2>
