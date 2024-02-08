@@ -24,7 +24,7 @@ export default function FilmImage() {
       {movies.slice(0, 3).map((film, index) => {
         const isLarge = index === 0;
         return (
-          <div key={film.id} className='relative'>
+          <div key={film.id} className='relative w-[820px]'>
             <div
               style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500/${film.backdrop_path})` }}
               className={`w-[${isLarge ? 820 : 400}px] h-[500px] bg-cover bg-center rounded-[30px] border-main border-[2px]`}
