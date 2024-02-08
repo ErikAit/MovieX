@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function Search() {
   return (
     <div className='search-box relative flex items-center'>
