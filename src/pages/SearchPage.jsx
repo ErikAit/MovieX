@@ -16,7 +16,7 @@ export default function SearchPage() {
         setSearchFilms(res.results);
         setTotalPages(res.total_pages);
       });
-  }, [searchValue, currentPage]);
+  }, [searchValue, currentPage, searchFilms]);
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
