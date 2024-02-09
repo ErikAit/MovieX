@@ -3,16 +3,20 @@ import Search from './search/Search'
 import FilmImage from './static-films/FilmImage'
 
 export default function Header() {
+  const reload = () => {
+    location.href = '/'
+  }
+
   return (
-    <header className={`header w-[1920px] h-[${location.href == 'http://localhost:5173/' ? 1080 : 0}px] bg-header px-[130px]`}>
+    <header className={`header w-[1920px] h-[${location.href.split('/')[3] != 'search' ? 1080 : 0}px] bg-header px-[130px]`}>
       <div className='header-top flex items-center justify-between py-[100px]'>
         <div>
-          <Link to="/">
-            <h2 className='text-white text-[32px] font-[600]'>
-              Movie
-              <span className='text-main text-[35px]'>X</span>
-            </h2>
-          </Link>
+          {/* <Link to="/"> */}
+          <h2 onClick={reload} className='text-white text-[32px] font-[600]'>
+            Movie
+            <span className='text-main text-[35px]'>X</span>
+          </h2>
+          {/* </Link> */}
         </div>
 
         <div>
@@ -21,7 +25,7 @@ export default function Header() {
       </div>
 
       {
-        location.href == 'http://localhost:5173/'
+        location.href.split('/')[3] != 'search'
           ? (
             <div>
               <div className='static-films-container'>
