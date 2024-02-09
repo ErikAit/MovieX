@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Film from '../components/film-card/Film';
 import Error from '../components/film-not-found/Error';
+import Loading from '../components/loading/Loading';
 
 export default function SearchPage() {
   const [searchFilms, setSearchFilms] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+
+  const [isLoading, setIsLoading] = useState(true);
 
   const searchValue = location.href.split('?')[1];
 
@@ -18,12 +21,26 @@ export default function SearchPage() {
       });
   }, [searchValue, currentPage, searchFilms]);
 
+  useEffect(() => {
+    setIsLoading(true)
+  }, [searchValue])
+
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
 
   return (
     <div>
+      {isLoading && (
+        <div className='fixed top-0 left-0 z-50 w-full'>
+          <Loading />
+          {
+            setTimeout(() => {
+              setIsLoading(false)
+            }, 600)
+          }
+        </div>)
+      }
       {searchFilms.length === 0 && <Error />}
       {searchValue !== '' ? (
         <div className='search-films-container relative grid grid-cols-4 place-items-center mt-[30px] mb-[100px] px-[8rem]'>
