@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react"
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Search() {
   const [searchValue, setSearchValue] = useState('');
-  const [value, setValue] = useState([])
+  const navigate = useNavigate();
 
   const handleChangeUrl = (e) => {
     if (e.code === 'Enter') {
-      location.href = `/search/?${searchValue}`
+      navigate(`/search/?${searchValue}`);
     }
   }
 
@@ -21,7 +22,7 @@ export default function Search() {
         onChange={(e) => setSearchValue(e.target.value)}
         className='border-main border-[2px] bg-transparent w-[400px] h-[80px] rounded-[50px] outline-none pl-2 text-white'
       />
-      <div className='bx bx-search absolute right-8 text-[2rem] text-white'></div>
+      <Link to={`/search/?${searchValue}`} className='bx bx-search absolute right-8 text-[2rem] text-white'></Link>
     </div>
-  )
+  );
 }
