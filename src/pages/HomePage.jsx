@@ -30,7 +30,7 @@ export default function HomePage() {
   return (
     <div className='Home my-[60px]'>
       <h2 className='font-[700] text-[40px] text-black text-center'>Most popular films</h2>
-      <div className='film-card-contaier grid grid-cols-4 place-items-center mt-[30px]'>
+      <div className='film-card-contaier grid grid-cols-4 place-items-center mt-[30px] px-[8rem]'>
         {
           popularMovies.map((popular, index) => {
             if (index < 4) {
@@ -48,7 +48,7 @@ export default function HomePage() {
         }
       </div>
       <h2 className='font-[700] text-[40px] mt-[60px] text-black text-center'>Most rated films</h2>
-      <div className='film-card-contaier grid grid-cols-4 place-items-center mt-[30px]'>
+      <div className='film-card-contaier grid grid-cols-4 place-items-center mt-[30px] px-[8rem]'>
         {
           mostRatedMovies.map((popular, index) => {
             if (index < 4) {

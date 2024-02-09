@@ -10,16 +10,6 @@ export default function Search() {
     }
   }
 
-  useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/search/movie?query=${searchValue}&api_key=d91b4b2e8fb2707acd809975c49bcf87`)
-      .then((res) => res.json())
-      .then((res) => {
-        setValue(res.results)
-      })
-  }, [searchValue])
-
-
-
   return (
     <div className='search-box relative flex items-center'>
       <input
