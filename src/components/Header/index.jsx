@@ -10,7 +10,7 @@ export default function Header() {
   }
 
   return (
-    <header className={`header w-[1920px] h-[${location.pathname.split('/')[1] != 'search' ? 1080 : 0}px] bg-header px-[130px]`}>
+    <header className={`header w-[1920px] h-[${location.href.split('/')[3] != 'search' ? 1080 : 0}px] bg-header px-[130px]`}>
       <div className='header-top flex items-center justify-between py-[100px]'>
         <div>
           <h2 onClick={reload} className='text-white text-[32px] font-[600]'>
