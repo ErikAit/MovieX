@@ -58,14 +58,14 @@ export default function HomePage() {
           popularMovies.map((popular, index) => {
             if (index < 4) {
               return (
-                <Link key={popular.id} to={`/film/?${popular.id}`}>
-                  <Film
-                    image={popular.backdrop_path}
-                    title={popular.original_title}
-                    date={popular.release_date}
-                    vote={popular.vote_average}
-                  />
-                </Link>
+                <Film
+                  key={popular.id}
+                  id={popular.id}
+                  image={popular.backdrop_path}
+                  title={popular.original_title}
+                  date={popular.release_date}
+                  vote={popular.vote_average}
+                />
               )
             }
           })
@@ -77,14 +77,14 @@ export default function HomePage() {
           mostRatedMovies.map((rated, index) => {
             if (index < 4) {
               return (
-                <Link key={rated.id} to={`/film/?${rated.id}`}>
-                  <Film
-                    image={rated.backdrop_path}
-                    title={rated.original_title}
-                    date={rated.release_date}
-                    vote={rated.vote_average}
-                  />
-                </Link>
+                <Film
+                  key={rated.id}
+                  id={rated.id}
+                  image={rated.backdrop_path}
+                  title={rated.original_title}
+                  date={rated.release_date}
+                  vote={rated.vote_average}
+                />
               )
             }
           })
