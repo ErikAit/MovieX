@@ -3,6 +3,7 @@ import './App.css'
 import Layout from './layout/Layout'
 import HomePage from './pages/HomePage'
 import SearchPage from './pages/SearchPage'
+import FilmPage from './pages/FilmPage'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route path='/' element={<HomePage />} />
           <Route path='/search' element={<SearchPage />} />
+          <Route path='/film' element={<FilmPage />} />
         </Route>
       </Routes>
     </div>

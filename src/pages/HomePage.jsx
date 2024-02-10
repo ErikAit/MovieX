@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Film from '../components/film-card/Film';
 import Loading from '../components/loading/Loading';
+import { Link } from 'react-router-dom';
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -49,13 +50,14 @@ export default function HomePage() {
           popularMovies.map((popular, index) => {
             if (index < 4) {
               return (
-                <Film
-                  key={popular.id}
-                  image={popular.backdrop_path}
-                  title={popular.original_title}
-                  date={popular.release_date}
-                  vote={popular.vote_average}
-                />
+                <Link key={popular.id} to={`/film/?${popular.id}`}>
+                  <Film
+                    image={popular.backdrop_path}
+                    title={popular.original_title}
+                    date={popular.release_date}
+                    vote={popular.vote_average}
+                  />
+                </Link>
               )
             }
           })
@@ -64,16 +66,17 @@ export default function HomePage() {
       <h2 className='font-[700] text-[40px] mt-[60px] text-black text-center'>Most rated films</h2>
       <div className='film-card-contaier grid grid-cols-4 place-items-center mt-[30px] px-[8rem]'>
         {
-          mostRatedMovies.map((popular, index) => {
+          mostRatedMovies.map((rated, index) => {
             if (index < 4) {
               return (
-                <Film
-                  key={popular.id}
-                  image={popular.backdrop_path}
-                  title={popular.original_title}
-                  date={popular.release_date}
-                  vote={popular.vote_average}
-                />
+                <Link key={rated.id} to={`/film/?${rated.id}`}>
+                  <Film
+                    image={rated.backdrop_path}
+                    title={rated.original_title}
+                    date={rated.release_date}
+                    vote={rated.vote_average}
+                  />
+                </Link>
               )
             }
           })

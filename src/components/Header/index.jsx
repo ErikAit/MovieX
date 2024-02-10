@@ -1,3 +1,4 @@
+import FilmInfo from '../film-info/FilmInfo';
 import Search from './search/Search'
 import FilmImage from './static-films/FilmImage'
 import { useNavigate } from "react-router-dom";
@@ -25,7 +26,7 @@ export default function Header() {
       </div>
 
       {
-        location.href.split('/')[3] != 'search'
+        location.href.split('/')[3] != 'search' && location.href.split('/')[3] != 'film'
           ? (
             <div>
               <div className='static-films-container'>
@@ -36,6 +37,15 @@ export default function Header() {
                 <h2 className='text-main text-[30px] font-[600] mb-[45px]'>Watch everywhere.</h2>
                 <span className='text-[24px] text-white font-[500]'>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV without paying more.</span>
               </div>
+            </div>
+          ) : null
+      }
+
+      {
+        location.href.split('/')[3] == 'film'
+          ? (
+            <div>
+              <FilmInfo />
             </div>
           ) : null
       }

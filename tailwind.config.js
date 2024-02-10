@@ -12,6 +12,9 @@ export default {
         white: '#fff',
         black: '#383838'
       },
+      screens: {
+        df: ''
+      },
     },
   },
   plugins: [],
