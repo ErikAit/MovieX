@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 export default function FilmActors() {
   const [actors, setActors] = useState([]);
-  const [visibleActors, setVisibleActors] = useState({ start: 0, end: 4 });
+  const [visibleActors, setVisibleActors] = useState({ start: 0, end: 5 });
   const filmId = location.href.split('?')[1];
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export default function FilmActors() {
 
   const handleNext = () => {
     setVisibleActors((prev) => ({
-      start: Math.min(prev.start + 4, actors.length - 4),
+      start: Math.min(prev.start + 4, actors.length - 5),
       end: Math.min(prev.end + 4, actors.length),
     }));
   };
