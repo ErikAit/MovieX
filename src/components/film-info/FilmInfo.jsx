@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import FilmActors from '../film-actors/FilmActors';
 
 export default function FilmInfo() {
   const [film, setFilm] = useState([]);
@@ -39,8 +40,8 @@ export default function FilmInfo() {
                   Chris Columbus
                 </p>
 
-                <div className='actors'>
-
+                <div className='actors mt-[10px]'>
+                  <FilmActors />
                 </div>
               </div>
             </div>
