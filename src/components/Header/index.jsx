@@ -33,7 +33,7 @@ export default function Header() {
                 <FilmImage />
               </div>
 
-              <div className="content mt-[45px]">
+              <div className="content mt-[45px] pb-[130px]">
                 <h2 className='text-main text-[30px] font-[600] mb-[45px]'>Watch everywhere.</h2>
                 <span className='text-[24px] text-white font-[500]'>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV without paying more.</span>
               </div>
