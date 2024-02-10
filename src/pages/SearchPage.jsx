@@ -47,14 +47,9 @@ export default function SearchPage() {
         <div className='search-films-container relative grid grid-cols-4 place-items-center mt-[30px] mb-[100px] px-[8rem]'>
           {searchFilms.map((film) => (
             <div key={film.id} className='mt-[40px]'>
-              <Link to={`/film/?${film.id}`}>
-                <Film
-                  image={film.backdrop_path}
-                  title={film.original_title}
-                  date={film.release_date}
-                  vote={film.vote_average}
-                />
-              </Link>
+              <Film
+                film={film}
+              />
             </div>
           ))}
           {totalPages > 1 && (

@@ -60,11 +60,7 @@ export default function HomePage() {
               return (
                 <Film
                   key={popular.id}
-                  id={popular.id}
-                  image={popular.backdrop_path}
-                  title={popular.original_title}
-                  date={popular.release_date}
-                  vote={popular.vote_average}
+                  film={popular}
                 />
               )
             }
@@ -79,11 +75,7 @@ export default function HomePage() {
               return (
                 <Film
                   key={rated.id}
-                  id={rated.id}
-                  image={rated.backdrop_path}
-                  title={rated.original_title}
-                  date={rated.release_date}
-                  vote={rated.vote_average}
+                  film={rated}
                 />
               )
             }
