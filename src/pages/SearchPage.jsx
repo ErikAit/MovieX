@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Film from '../components/film-card/Film';
 import Error from '../components/film-not-found/Error';
 import Loading from '../components/loading/Loading';
+import { Link } from 'react-router-dom';
 
 export default function SearchPage() {
   const [searchFilms, setSearchFilms] = useState([]);
@@ -46,12 +47,14 @@ export default function SearchPage() {
         <div className='search-films-container relative grid grid-cols-4 place-items-center mt-[30px] mb-[100px] px-[8rem]'>
           {searchFilms.map((film) => (
             <div key={film.id} className='mt-[40px]'>
-              <Film
-                image={film.backdrop_path}
-                title={film.original_title}
-                date={film.release_date}
-                vote={film.vote_average}
-              />
+              <Link to={`/film/?${film.id}`}>
+                <Film
+                  image={film.backdrop_path}
+                  title={film.original_title}
+                  date={film.release_date}
+                  vote={film.vote_average}
+                />
+              </Link>
             </div>
           ))}
           {totalPages > 1 && (
