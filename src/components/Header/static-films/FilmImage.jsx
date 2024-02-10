@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -25,10 +26,12 @@ export default function FilmImage() {
         const isLarge = index === 0;
         return (
           <div key={film.id} className='relative w-[820px]'>
-            <div
-              style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500/${film.backdrop_path})` }}
-              className={`w-[${isLarge ? 820 : 400}px] h-[500px] bg-cover bg-center rounded-[30px] border-main border-[2px]`}
-            ></div>
+            <Link to={`/film/?${film.id}`}>
+              <div
+                style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500/${film.backdrop_path})` }}
+                className={`w-[${isLarge ? 820 : 400}px] h-[500px] bg-cover bg-center rounded-[30px] border-main border-[2px]`}
+              ></div>
+            </Link>
             {isLarge && (
               <button className='text-black bg-main font-[600] w-[160px] h-[60px] rounded-[50px] absolute left-[620px] top-[400px]'>
                 Watch now
