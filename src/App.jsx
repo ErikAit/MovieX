@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage'
 import SearchPage from './pages/SearchPage'
 import FilmPage from './pages/FilmPage'
 import LoginPage from './pages/LoginPage'
+import FavoritePage from './pages/FavoritePage'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path='/' element={<HomePage />} />
           <Route path='/search' element={<SearchPage />} />
           <Route path='/film' element={<FilmPage />} />
+          <Route path='/fav' element={<FavoritePage />} />
         </Route>
       </Routes>
     </div>

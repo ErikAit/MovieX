@@ -1,7 +1,7 @@
 import FilmInfo from '../film-info/FilmInfo';
 import Search from './search/Search'
 import FilmImage from './static-films/FilmImage'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
   const navigate = useNavigate()
@@ -20,13 +20,17 @@ export default function Header() {
           </h2>
         </div>
 
-        <div>
+        <div className='flex items-center'>
+          <Link to='/fav' className='mr-[30px] text-main text-[30px]'>
+            <i className='bx bxs-heart'></i>
+          </Link>
+
           <Search />
         </div>
       </div>
 
       {
-        location.href.split('/')[3] != 'search' && location.href.split('/')[3] != 'film'
+        location.href.split('/')[3] != 'search' && location.href.split('/')[3] != 'film' && location.href.split('/')[3] != 'fav'
           ? (
             <div>
               <div className='static-films-container'>
