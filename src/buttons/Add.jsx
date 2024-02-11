@@ -29,7 +29,7 @@ export default function Add({ film }) {
       onClick={() => {
         handleToggleFavorites();
       }}
-      className={`${isActive ? 'bx bxs-heart scale-[1.5] duration-300' : 'bx bx-heart duration-300'} text-main text-[20px]`}
+      className={`${isActive ? 'bx bxs-heart scale-[1.5] duration-300 cursor-pointer' : 'bx bx-heart duration-300 cursor-pointer'} text-main text-[20px]`}
     ></i>
   );
 }
