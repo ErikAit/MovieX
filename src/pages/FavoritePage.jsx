@@ -1,13 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useAddFilm } from '../store/store'
 import Film from '../components/film-card/Film';
 import Error from '../components/film-not-found/Error';
+import Loading from '../components/loading/Loading';
 
 export default function FavoritePage() {
+  const [isLoading, setIsLoading] = useState(true);
+
   const films = useAddFilm((state) => state.films);
 
   return (
     <div>
+      {
+        isLoading &&
+        <div className='fixed top-0 left-0 z-50 w-full'>
+          <Loading />
+          {
+            setTimeout(() => {
+              setIsLoading(false)
+            }, 600)
+          }
+        </div>
+      }
       {
         films.length === 0 &&
         <div className='h-[48.5vh]'>
