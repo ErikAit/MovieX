@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Loading from '../components/loading/Loading';
+import SimilarFilms from '../components/similar-films/SimilarFilms';
 
 export default function FilmPage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,6 +19,7 @@ export default function FilmPage() {
           }
         </div>
       }
+      <SimilarFilms />
     </div>
   )
 }

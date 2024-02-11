@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Film from '../components/film-card/Film';
 import Error from '../components/film-not-found/Error';
 import Loading from '../components/loading/Loading';
-import { Link } from 'react-router-dom';
 
 export default function SearchPage() {
   const [searchFilms, setSearchFilms] = useState([]);

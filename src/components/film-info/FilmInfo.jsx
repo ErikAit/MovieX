@@ -4,7 +4,7 @@ import Trailer from '../trailers/Trailer';
 
 export default function FilmInfo() {
   const [film, setFilm] = useState([]);
-  const filmId = location.href.split('?')[1];
+  const filmId = location.href.split('?')[1].replace('/', '')
 
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/${filmId}?api_key=d91b4b2e8fb2707acd809975c49bcf87`)
@@ -12,7 +12,7 @@ export default function FilmInfo() {
       .then((res) => {
         setFilm([...film, res]);
       });
-  }, [filmId]);
+  }, []);
 
   return (
     <div>
@@ -24,7 +24,7 @@ export default function FilmInfo() {
                 <div>
                   <img
                     className='w-[400px] h-[500px] rounded-[30px] object-cover'
-                    src={`https://image.tmdb.org/t/p/w500/${genre.poster_path}`} alt="" />
+                    src={`https://image.tmdb.org/t/p/w500/${genre.backdrop_path}`} alt="" />
                 </div>
 
                 <div className='content ml-[14rem]'>
