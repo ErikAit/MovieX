@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 
-export default function Trailer() {
+function Trailer() {
   const [trailer, setTrailer] = useState([]);
   const filmId = location.href.split('?')[1];
   const [isVideoVisible, setIsVideoVisible] = useState(false);
@@ -50,3 +50,5 @@ export default function Trailer() {
     </div>
   );
 }
+
+export default memo(Trailer)

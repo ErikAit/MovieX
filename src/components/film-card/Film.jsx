@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { memo } from 'react'
 import Add from '../../buttons/Add'
 import { Link } from 'react-router-dom'
 
-export default function Film({ film }) {
+function Film({ film }) {
 
   return (
     <div className='film-card relative w-[400px] h-[560px] rounded-[30px] border-[2px] border-main'>
@@ -33,3 +33,5 @@ export default function Film({ film }) {
     </div>
   )
 }
+
+export default memo(Film)

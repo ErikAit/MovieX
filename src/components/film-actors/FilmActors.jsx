@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 
-export default function FilmActors() {
+function FilmActors() {
   const [actors, setActors] = useState([]);
   const [visibleActors, setVisibleActors] = useState({ start: 0, end: 5 });
   const filmId = location.href.split('?')[1];
@@ -45,3 +45,5 @@ export default function FilmActors() {
     </div>
   );
 }
+
+export default memo(FilmActors)

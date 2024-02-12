@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Film from '../components/film-card/Film';
 import Loading from '../components/loading/Loading';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {

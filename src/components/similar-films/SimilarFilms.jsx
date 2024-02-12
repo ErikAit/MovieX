@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import Film from '../film-card/Film';
 import NotFound from '../film-not-found/Error';
 
-export default function SimilarFilms() {
+function SimilarFilms() {
   const [similar, setSimilar] = useState([]);
   const film_title = location.href.split('?')[2];
   const filmId = location.href.split('?')[1].replace('/', '');
@@ -40,3 +40,5 @@ export default function SimilarFilms() {
     </div>
   );
 }
+
+export default memo(SimilarFilms)

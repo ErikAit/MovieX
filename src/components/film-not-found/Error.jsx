@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { memo } from 'react'
 
-export default function Error() {
+function Error() {
   return (
     <div className='error h-[420px] flex items-center justify-center'>
       <h2 className='font-[700] text-[30px] text-black flex items-center'>
@@ -10,3 +10,5 @@ export default function Error() {
     </div>
   )
 }
+
+export default memo(Error)
