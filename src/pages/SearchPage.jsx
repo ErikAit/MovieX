@@ -13,7 +13,7 @@ export default function SearchPage() {
   const searchValue = location.href.split('?')[1];
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/search/movie?query=${searchValue}&api_key=d91b4b2e8fb2707acd809975c49bcf87&page=${currentPage}`)
+    fetch(`https://api.themoviedb.org/3/search/movie?query=${searchValue != undefined ? searchValue : ''}&api_key=d91b4b2e8fb2707acd809975c49bcf87&page=${currentPage}`)
       .then((res) => res.json())
       .then((res) => {
         setSearchFilms(res.results);
