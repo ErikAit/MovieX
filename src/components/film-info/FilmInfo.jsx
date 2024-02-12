@@ -12,19 +12,19 @@ export default function FilmInfo() {
       .then((res) => {
         setFilm([...film, res]);
       });
-  }, []);
+  }, [filmId]);
 
   return (
     <div>
       <div>
-        {film.map((genre, index) => {
-          if (index < 1) {
+        {film.map((genre) => {
+          if (genre.id === +filmId) {
             return (
               <div key={filmId} className='flex'>
                 <div>
                   <img
                     className='w-[400px] h-[500px] rounded-[30px] object-cover'
-                    src={`https://image.tmdb.org/t/p/w500/${genre.backdrop_path}`} alt="" />
+                    src={genre.backdrop_path !== null ? `https://image.tmdb.org/t/p/w500/${genre.backdrop_path}` : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'} alt="" />
                 </div>
 
                 <div className='content ml-[14rem]'>

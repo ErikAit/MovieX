@@ -30,7 +30,9 @@ export default function Header() {
       </div>
 
       {
-        location.href.split('/')[3] != 'search' && location.href.split('/')[3] != 'film' && location.href.split('/')[3] != 'fav'
+        location.href.split('/')[3] != 'search'
+          && location.href.split('/')[3] != 'film'
+          && location.href.split('/')[3] != 'fav'
           ? (
             <div>
               <div className='static-films-container'>
