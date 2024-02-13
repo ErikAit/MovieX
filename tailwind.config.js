@@ -26,6 +26,10 @@ export default {
         mb: '766px',
 
         cd: '1880px',
+
+        cd2: '1094px',
+
+        pg: '647px'
       },
     },
   },

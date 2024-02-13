@@ -70,7 +70,7 @@ export default function HomePage() {
       )}
 
       <h2 className='font-[700] text-[40px] text-black text-center'>Most popular films</h2>
-      <div className='film-card-contaier grid grid-cols-4 place-items-center mt-[30px] px-[8rem] relative'>
+      <div className='film-card-contaier grid gap-[18px] cd2:grid-cols-2 cd:grid-cols-4 place-items-center mt-[30px] px-[8rem]'>
         <i
           className='bx bxs-left-arrow text-[40px] text-main absolute left-[10px]'
           onClick={() => handlePopularSlide('prev')}
@@ -85,7 +85,7 @@ export default function HomePage() {
       </div>
 
       <h2 className='font-[700] text-[40px] mt-[60px] text-black text-center'>Most rated films</h2>
-      <div className='film-card-contaier grid grid-cols-4 place-items-center mt-[30px] px-[8rem]'>
+      <div className='film-card-contaier grid gap-[18px] cd2:grid-cols-2 cd:grid-cols-4 place-items-center mt-[30px] px-[8rem]'>
         <i
           className='bx bxs-left-arrow text-[40px] text-main absolute left-[10px]'
           onClick={() => handleRatedSlide('prev')}

@@ -33,7 +33,7 @@ export default function FilmImage() {
               ></div>
             </Link>
             {isFirst && (
-              <button className='text-black bg-main font-[600] hidden xl:block w-[160px] h-[60px] rounded-[50px] absolute left-[620px] top-[400px]'>
+              <button className='text-black bg-main font-[600] w-[160px] h-[60px] rounded-[50px] absolute left-[620px] top-[400px]'>
                 Watch now
               </button>
             )}
