@@ -62,7 +62,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className='Home my-[60px] w-[1920px]'>
+    <div className='Home my-[60px]'>
       {isLoading && (
         <div className='fixed top-0 left-0 z-50 w-full'>
           <Loading />

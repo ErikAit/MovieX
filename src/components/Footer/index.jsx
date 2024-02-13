@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
-    <footer className='footer w-[1920px] h-[250px] bg-main px-[130px] flex items-center justify-between'>
+    <footer className='footer w-full h-[250px] bg-main px-[130px] flex items-center justify-between'>
       <div className='flex gap-[20px]'>
         <a href="#">
           <i className='bx bxl-instagram-alt text-[40px] text-black'></i>

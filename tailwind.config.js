@@ -13,7 +13,19 @@ export default {
         black: '#383838'
       },
       screens: {
-        df: ''
+        mx: '1900px',
+
+        df: '1700px',
+
+        xl: '1680px',
+
+        md: '1220px',
+
+        ml: '1352px',
+
+        mb: '766px',
+
+        cd: '1880px',
       },
     },
   },
