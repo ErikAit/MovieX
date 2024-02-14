@@ -23,7 +23,7 @@ export default function SearchPage() {
       }).finally(() => {
         setIsLoading(false);
       })
-  }, [searchValue]);
+  }, [searchValue, currentPage]);
 
 
   const handlePageChange = (newPage) => {
