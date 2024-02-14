@@ -30,7 +30,7 @@ function SimilarFilms() {
       <div>
         {
           similar.length < 1 ? <NotFound /> : (
-            <div className='film-card-contaier grid grid-cols-4 place-items-center mt-[30px] px-[8rem]'>
+            <div className='film-card-contaier grid gap-[18px] cd2:grid-cols-2 cd:grid-cols-4 place-items-center mt-[30px] px-[8rem]'>
               {
                 similar.map((film) => (
                   <div key={film.id} className='my-[20px]'>
