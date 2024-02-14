@@ -20,8 +20,10 @@ export default function SearchPage() {
       .then((res) => {
         setSearchFilms(res.results);
         setTotalPages(res.total_pages);
-      }).finally(() => setIsLoading(false))
-  }, [searchValue, currentPage]);
+      }).finally(() => {
+        setIsLoading(false);
+      })
+  }, [searchValue]);
 
 
   const handlePageChange = (newPage) => {
