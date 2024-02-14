@@ -33,11 +33,6 @@ export default function SearchPage() {
       {isLoading && (
         <div className='fixed top-0 left-0 z-50 w-full'>
           <Loading />
-          {
-            setTimeout(() => {
-              setIsLoading(false)
-            }, 600)
-          }
         </div>)
       }
       {searchFilms.length === 0 && <Error />}
