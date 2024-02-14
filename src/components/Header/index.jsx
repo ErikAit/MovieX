@@ -1,9 +1,12 @@
+import { useAddFilm } from '../../store/store';
 import FilmInfo from '../film-info/FilmInfo';
 import Search from './search/Search'
 import FilmImage from './static-films/FilmImage'
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const films = useAddFilm((state) => state.films);
+
   const navigate = useNavigate()
 
   const reload = () => {
@@ -21,7 +24,13 @@ export default function Header() {
         </div>
 
         <div className='flex items-center'>
-          <Link to='/fav' className='mr-[30px] text-main text-[30px]'>
+          <Link to='/fav' className='mr-[30px] relative text-main text-[30px]'>
+            {
+              films.length !== 0 &&
+              <span className='text-[18px] top-[-15px] left-[-10px] rounded-full flex justify-center w-[25px] bg-red-600 text-white absolute'>
+                {films.length}
+              </span>
+            }
             <i className='bx bxs-heart'></i>
           </Link>
 
