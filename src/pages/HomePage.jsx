@@ -19,6 +19,8 @@ export default function HomePage() {
   const [currentRatedIndex, setCurrentRatedIndex] = useState(0);
 
   useEffect(() => {
+    setIsLoading(true)
+
     fetch(`https://api.themoviedb.org/3/movie/popular?api_key=d91b4b2e8fb2707acd809975c49bcf87&query=`)
       .then((res) => res.json())
       .then((res) => {
@@ -27,6 +29,8 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
+    setIsLoading(true)
+
     fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=d91b4b2e8fb2707acd809975c49bcf87&query=')
       .then((res) => res.json())
       .then((res) => setMostRatedMovies(shuffleArray(res.results)));
