@@ -5,8 +5,10 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const emailRegexp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
+
   const handleLogin = () => {
-    if (email !== '' && password !== '') {
+    if (email !== '' && password !== '' && emailRegexp.test(email)) {
       localStorage.setItem('isLoggedIn', 'true');
     }
   };
