@@ -1,21 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import FilmActors from '../film-actors/FilmActors';
 import Trailer from '../trailers/Trailer';
+import Loading from '../loading/Loading';
 
 export default function FilmInfo() {
   const [film, setFilm] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   const filmId = location.href.split('?')[1].replace('/', '')
 
   useEffect(() => {
+    setIsLoading(true)
+
     fetch(`https://api.themoviedb.org/3/movie/${filmId}?api_key=d91b4b2e8fb2707acd809975c49bcf87`)
       .then((res) => res.json())
       .then((res) => {
         setFilm([...film, res]);
-      });
+      }).finally(() => setIsLoading(false))
   }, [filmId]);
 
   return (
     <div>
+      {isLoading && <Loading />}
       <div>
         {film.map((genre) => {
           if (genre.id === +filmId) {
