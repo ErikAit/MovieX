@@ -2,6 +2,7 @@ import React, { memo, useEffect, useState } from 'react';
 import Film from '../film-card/Film';
 import NotFound from '../film-not-found/Error';
 import Loading from '../loading/Loading';
+import Category from '../category/Category';
 
 function SimilarFilms() {
   const [similar, setSimilar] = useState([]);
@@ -30,15 +31,7 @@ function SimilarFilms() {
       <div>
         {
           similar.length < 1 ? <NotFound /> : (
-            <div className='film-card-contaier grid gap-[18px] cd2:grid-cols-2 cd:grid-cols-4 place-items-center mt-[30px] px-[8rem]'>
-              {
-                similar.map((film) => (
-                  <div key={film.id} className='my-[20px]'>
-                    <Film film={film} />
-                  </div>
-                ))
-              }
-            </div>
+            <Category film={similar} isSlider={false} />
           )
         }
       </div>

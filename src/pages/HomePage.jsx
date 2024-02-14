@@ -42,10 +42,10 @@ export default function HomePage() {
       )}
 
       <h2 className='font-[700] text-[40px] text-black text-center'>Most popular films</h2>
-      <Category film={popularMovies} />
+      <Category film={popularMovies} isSlider={true} />
 
       <h2 className='font-[700] text-[40px] mt-[60px] text-black text-center'>Most rated films</h2>
-      <Category film={mostRatedMovies} />
+      <Category film={mostRatedMovies} isSlider={true} />
     </div>
   );
 }
