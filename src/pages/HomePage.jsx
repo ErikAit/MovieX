@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Film from '../components/film-card/Film';
 import Loading from '../components/loading/Loading';
-import { useNavigate } from 'react-router-dom';
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -25,7 +24,7 @@ export default function HomePage() {
       .then((res) => res.json())
       .then((res) => {
         setPopularMovies(shuffleArray(res.results));
-      });
+      }).finally(() => setIsLoading(false))
   }, []);
 
   useEffect(() => {
@@ -33,21 +32,9 @@ export default function HomePage() {
 
     fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=d91b4b2e8fb2707acd809975c49bcf87&query=')
       .then((res) => res.json())
-      .then((res) => setMostRatedMovies(shuffleArray(res.results)));
+      .then((res) => setMostRatedMovies(shuffleArray(res.results)))
+      .finally(() => setIsLoading(false))
   }, []);
-
-  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!isLoggedIn) {
-      navigate('/login');
-    } else {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 600);
-    }
-  }, [isLoggedIn, navigate]);
 
   const handlePopularSlide = (direction) => {
     if (direction === 'prev') {
