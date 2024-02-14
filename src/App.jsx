@@ -15,10 +15,6 @@ function App() {
   useEffect(() => {
     if (!isLoggedIn) {
       navigate('/login');
-    } else {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 600);
     }
   }, [isLoggedIn, navigate]);
 
