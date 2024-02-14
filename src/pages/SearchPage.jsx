@@ -13,17 +13,17 @@ export default function SearchPage() {
   const searchValue = location.href.split('?')[1];
 
   useEffect(() => {
+    setIsLoading(true);
+
     fetch(`https://api.themoviedb.org/3/search/movie?query=${searchValue != undefined ? searchValue : ''}&api_key=d91b4b2e8fb2707acd809975c49bcf87&page=${currentPage}`)
       .then((res) => res.json())
       .then((res) => {
         setSearchFilms(res.results);
         setTotalPages(res.total_pages);
+        setIsLoading(false);
       });
-  }, [searchValue, currentPage, searchFilms]);
+  }, [searchValue, currentPage]);
 
-  useEffect(() => {
-    setIsLoading(true)
-  }, [searchValue])
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
