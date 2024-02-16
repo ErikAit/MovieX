@@ -7,6 +7,7 @@ import FilmPage from './pages/FilmPage'
 import LoginPage from './pages/LoginPage'
 import FavoritePage from './pages/FavoritePage'
 import { useEffect } from 'react'
+import RegisterPage from './pages/RegisterPage'
 
 function App() {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
@@ -22,6 +23,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/login' element={<LoginPage />} />
+        <Route path='/reg' element={<RegisterPage />} />
         <Route path='/' element={<Layout />}>
           <Route path='/' element={<HomePage />} />
           <Route path='/search' element={<SearchPage />} />
