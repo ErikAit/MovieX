@@ -9,11 +9,13 @@ export default function LoginPage() {
   const [passwordError, setPasswordError] = useState(false);
 
   const emailRegexp = /^(?=.*[a-zA-Z])(?=.*\d).{4,}@(mail\.ru|gmail\.com)$/;
+  const passwordRegexp = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+
 
 
   const handleLogin = (e) => {
     e.preventDefault()
-    if (email !== '' && password !== '' && emailRegexp.test(email)) {
+    if (email !== '' && password !== '' && emailRegexp.test(email) && passwordRegexp.test(password)) {
       localStorage.setItem('isLoggedIn', 'true');
     }
     if (email === '' || !emailRegexp.test(email)) {
@@ -21,7 +23,7 @@ export default function LoginPage() {
     } else {
       setEmailError(false)
     }
-    if (password === '') {
+    if (password === '' || !passwordRegexp.test(password)) {
       setPasswordError(true);
     } else {
       setPasswordError(false);
