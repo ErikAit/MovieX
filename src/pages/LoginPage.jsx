@@ -8,15 +8,23 @@ export default function LoginPage() {
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
 
-  const emailRegexp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
+  const emailRegexp = /^(?=.*[a-zA-Z])(?=.*\d).{4,}@(mail\.ru|gmail\.com)$/;
+
 
   const handleLogin = (e) => {
     e.preventDefault()
     if (email !== '' && password !== '' && emailRegexp.test(email)) {
       localStorage.setItem('isLoggedIn', 'true');
-    } else {
+    }
+    if (email === '' || !emailRegexp.test(email)) {
       setEmailError(true);
+    } else {
+      setEmailError(false)
+    }
+    if (password === '') {
       setPasswordError(true);
+    } else {
+      setPasswordError(false);
     }
   };
 
