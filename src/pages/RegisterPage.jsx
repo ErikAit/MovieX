@@ -10,7 +10,7 @@ export default function RegisterPage() {
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
 
-  const emailRegexp = /^(?=.*[a-zA-Z])(?=.*\d).{4,}@(mail\.ru|gmail\.com)$/;
+  const emailRegexp = /^[a-zA-Z](?=.*[a-zA-Z])(?=.*\d).{3,}@(mail\.ru|gmail\.com)$/;
   const passwordRegexp = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
 
   const handleRegister = (e) => {
