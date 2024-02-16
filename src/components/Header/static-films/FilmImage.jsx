@@ -26,7 +26,7 @@ export default function FilmImage() {
         const isFirst = index === 0;
         return (
           <div key={film.id} className={`relative`}>
-            <Link to={`/film/?${film.id}/?${film.original_title}`}>
+            <Link to={`/film/?${film.id}/?${film.original_title.split(' ')[0]}`}>
               <div
                 style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500/${film.backdrop_path})` }}
                 className={`w-[${isFirst ? 820 : 400}px] h-[500px] bg-cover bg-center rounded-[30px] border-main border-[2px]`}
