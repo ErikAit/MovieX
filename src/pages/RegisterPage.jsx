@@ -1,15 +1,38 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function RegisterPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleRegister = () => {
-    localStorage.setItem('reg', JSON.stringify({
-      email: email,
-      password: password,
-    }))
+  const navigate = useNavigate();
+
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+
+  const emailRegexp = /^(?=.*[a-zA-Z])(?=.*\d).{4,}@(mail\.ru|gmail\.com)$/;
+  const passwordRegexp = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+
+  const handleRegister = (e) => {
+    e.preventDefault()
+    if (email !== '' && password !== '' &&
+      emailRegexp.test(email) && passwordRegexp.test(password)) {
+      localStorage.setItem('reg', JSON.stringify({
+        email: email,
+        password: password,
+      }))
+      navigate('/login')
+    }
+    if (email === '' || !emailRegexp.test(email)) {
+      setEmailError(true);
+    } else {
+      setEmailError(false)
+    }
+    if (password === '' || !passwordRegexp.test(password)) {
+      setPasswordError(true);
+    } else {
+      setPasswordError(false);
+    }
   }
 
   return (
@@ -27,7 +50,7 @@ export default function RegisterPage() {
                   placeholder='Enter your email...'
                   className='px-[13px] py-[12px] bg-transparent text-white border-[2px] border-main rounded-[25px] outline-none'
                 />
-                {/* {emailError ? <div className='text-red-600'>Неверный адресс.</div> : null} */}
+                {emailError ? <div className='text-red-600'>Неверный адресс.</div> : null}
               </div>
 
               <div className='m-[10px]'>
@@ -38,7 +61,7 @@ export default function RegisterPage() {
                   placeholder='Enter your password...'
                   className='px-[13px] py-[12px] bg-transparent text-white border-[2px] border-main rounded-[25px] outline-none'
                 />
-                {/* {passwordError ? <div className='text-red-600'>Неверный пароль.</div> : null} */}
+                {passwordError ? <div className='text-red-600'>Неверный пароль.</div> : null}
               </div>
 
               <div className='m-[20px] border-[2px] border-main py-[8px] px-[18px] rounded-[20px] text-white'>

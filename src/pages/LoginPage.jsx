@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -13,18 +13,22 @@ export default function LoginPage() {
   const emailRegexp = /^(?=.*[a-zA-Z])(?=.*\d).{4,}@(mail\.ru|gmail\.com)$/;
   const passwordRegexp = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
 
+  const isRegister = JSON.parse(localStorage.getItem('reg'));
+
   const handleLogin = (e) => {
     e.preventDefault()
-    if (email !== '' && password !== '' && emailRegexp.test(email) && passwordRegexp.test(password)) {
+    if (email !== '' && password !== '' &&
+      emailRegexp.test(email) && passwordRegexp.test(password) &&
+      isRegister.email === email && isRegister.password === password) {
       localStorage.setItem('isLoggedIn', 'true');
       navigate('/')
     }
-    if (email === '' || !emailRegexp.test(email)) {
+    if (email === '' || !emailRegexp.test(email) || isRegister.email !== email) {
       setEmailError(true);
     } else {
       setEmailError(false)
     }
-    if (password === '' || !passwordRegexp.test(password)) {
+    if (password === '' || !passwordRegexp.test(password) || isRegister.password !== password) {
       setPasswordError(true);
     } else {
       setPasswordError(false);
@@ -36,6 +40,7 @@ export default function LoginPage() {
       {
         !localStorage.getItem('isLoggedIn') ? <div className='bg-header h-screen flex justify-center items-center'>
           <form className='w-[420px] h-[560px] border-[3px] border-main rounded flex flex-col justify-center items-center'>
+            <h2 className='text-main text-[25px]'>Login</h2>
             <div className='m-[15px]'>
               <input
                 type="text"
@@ -61,8 +66,6 @@ export default function LoginPage() {
             <div className='m-[20px] border-[2px] border-main py-[8px] px-[18px] rounded-[20px] text-white'>
               <button onClick={handleLogin} type="submit">Submit</button>
             </div>
-
-            <div>Нету учетной записи? <Link to={'/reg'}>Создайте ее.</Link></div>
           </form>
         </div> : location.href = '/'
       }
