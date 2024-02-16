@@ -10,14 +10,16 @@ import { useEffect } from 'react'
 import RegisterPage from './pages/RegisterPage'
 
 function App() {
-  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  const isRegister = localStorage.getItem('reg');
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isLoggedIn) {
-      navigate('/login');
+    if (!isRegister && !isLoggedIn) {
+      navigate('/reg');
     }
-  }, [isLoggedIn, navigate]);
+  }, [isRegister, navigate]);
+
 
   return (
     <div className="App">
