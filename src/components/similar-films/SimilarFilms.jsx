@@ -1,15 +1,8 @@
 import React, { memo, useEffect, useState } from 'react';
+import Film from '../film-card/Film';
 import NotFound from '../film-not-found/Error';
 import Loading from '../loading/Loading';
 import Category from '../category/Category';
-
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
 
 function SimilarFilms() {
   const [similar, setSimilar] = useState([]);
@@ -25,7 +18,7 @@ function SimilarFilms() {
       .then((res) => res.json())
       .then((res) => {
         const filteredSimilar = res.results.filter((film) => film.id !== parseInt(filmId));
-        setSimilar(shuffleArray(filteredSimilar.slice(0, 4)));
+        setSimilar(filteredSimilar.slice(0, 4));
       }).finally(() => {
         setIsLoading(false)
       })
