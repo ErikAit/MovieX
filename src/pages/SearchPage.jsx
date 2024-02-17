@@ -39,7 +39,7 @@ export default function SearchPage() {
       }
       {searchFilms.length === 0 && <Error />}
       {searchValue !== '' ? (
-        <div className='search-films-container relative grid gap-[18px] cd2:grid-cols-2 cd:grid-cols-4 place-items-center mt-[30px] mb-[100px] px-[8rem]'>
+        <div className='search-films-container mb-[100px] relative grid gap-[18px] cd2:grid-cols-2 cd:grid-cols-4 place-items-center mt-[30px] sr:px-[8rem] w-full'>
           {searchFilms.map((film) => (
             <div key={film.id} className='mt-[40px]'>
               <Film
