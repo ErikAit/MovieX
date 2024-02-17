@@ -1,15 +1,22 @@
 import React, { memo, useEffect, useState } from 'react';
-import Film from '../film-card/Film';
 import NotFound from '../film-not-found/Error';
 import Loading from '../loading/Loading';
 import Category from '../category/Category';
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 
 function SimilarFilms() {
   const [similar, setSimilar] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const film_title = location.href.split('?')[2];
   const filmId = location.href.split('?')[1].replace('/', '');
+  const film_title = location.href.split('?')[2];
 
   useEffect(() => {
     setIsLoading(true)
@@ -30,7 +37,7 @@ function SimilarFilms() {
       <h2 className='font-[700] text-[40px] text-black text-center'>Similar films</h2>
       <div>
         {
-          similar.length < 1 ? <NotFound /> : (
+          similar.length === 0 ? <NotFound /> : (
             <Category film={similar} isSlider={false} />
           )
         }
