@@ -8,6 +8,7 @@ export default function Search() {
   const handleChangeUrl = (e) => {
     if (e.code === 'Enter') {
       navigate(`/search/?${searchValue}`);
+      setSearchValue('');
     }
   }
 
