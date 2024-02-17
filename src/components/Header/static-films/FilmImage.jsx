@@ -21,7 +21,8 @@ export default function FilmImage() {
   }, []);
 
   return (
-    <div className='flex justify-center xl:flex-nowrap gap-[20px] mb:flex-wrap'>
+    <div className='mb:flex mb:justify-center gap-[20px] mb:flex-wrap xl:flex-nowrap
+    mn:grid ct:grid-cols-1 mn:place-items-center'>
       {movies.slice(0, 3).map((film, index) => {
         const isFirst = index === 0;
         return (
@@ -29,11 +30,11 @@ export default function FilmImage() {
             <Link to={`/film/?${film.id}/?${film.original_title.split(' ')[0]}`}>
               <div
                 style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500/${film.backdrop_path})` }}
-                className={`w-[${isFirst ? 820 : 400}px] h-[500px] bg-cover bg-center rounded-[30px] border-main border-[2px]`}
+                className={`im:w-[${isFirst ? 820 : 400}px] ct:w-[300px] ct:h-[400px] mn:w-[400px] h-[500px] bg-cover bg-center rounded-[30px] border-main border-[2px]`}
               ></div>
             </Link>
             {isFirst && (
-              <button className='text-black bg-main font-[600] w-[160px] h-[60px] rounded-[50px] absolute left-[620px] top-[400px]'>
+              <button className='text-black bg-main hidden cd2:block font-[600] w-[160px] h-[60px] rounded-[50px] absolute im:left-[620px] im:top-[300px]'>
                 Watch now
               </button>
             )}

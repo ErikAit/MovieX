@@ -36,15 +36,15 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className='Home my-[60px]'>
+    <div className='Home my-[60px] flex justify-center flex-col items-center'>
       {isLoading && (
         <Loading />
       )}
 
-      <h2 className='font-[700] text-[40px] text-black text-center'>Most popular films</h2>
+      <h2 className='font-[700] text-[40px] text-black text-center w-full'>Most popular films</h2>
       <Category film={popularMovies} isSlider={true} />
 
-      <h2 className='font-[700] text-[40px] mt-[60px] text-black text-center'>Most rated films</h2>
+      <h2 className='font-[700] text-[40px] mt-[60px] text-black text-center w-full'>Most rated films</h2>
       <Category film={mostRatedMovies} isSlider={true} />
     </div>
   );

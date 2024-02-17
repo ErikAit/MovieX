@@ -12,10 +12,10 @@ function Category({ film, isSlider }) {
     }
   };
   return (
-    <div className='film-card-contaier grid gap-[18px] cd2:grid-cols-2 cd:grid-cols-4 place-items-center mt-[30px] px-[8rem]'>
+    <div className='film-card-contaier grid gap-[18px] cd2:grid-cols-2 cd:grid-cols-4 place-items-center mt-[30px] sr:px-[8rem] w-full'>
       {isSlider &&
         <i
-          className='bx bxs-left-arrow text-[40px] text-main absolute left-[10px]'
+          className='bx bxs-left-arrow text-[40px] text-main hidden pg:block absolute left-[10px]'
           onClick={() => handleFilmSlide('prev')}
         ></i>}
       {film.slice(currentIndex, currentIndex + 4).map((film) => (
@@ -23,7 +23,7 @@ function Category({ film, isSlider }) {
       ))}
       {isSlider &&
         <i
-          className='bx bxs-right-arrow text-[40px] text-main absolute right-[10px]'
+          className='bx bxs-right-arrow text-[40px] text-main hidden pg:block absolute right-[10px]'
           onClick={() => handleFilmSlide('next')}
         ></i>}
     </div>

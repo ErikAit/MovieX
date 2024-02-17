@@ -19,7 +19,7 @@ export default {
 
         xl: '1680px',
 
-        md: '1220px',
+        md: '1250px',
 
         ml: '1352px',
 
@@ -29,7 +29,15 @@ export default {
 
         cd2: '1094px',
 
-        pg: '647px'
+        pg: '647px',
+
+        sr: '600px',
+
+        mn: '500px',
+
+        ct: '450px',
+
+        im: '1075px',
       },
     },
   },
