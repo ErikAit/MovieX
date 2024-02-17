@@ -30,11 +30,11 @@ function FilmActors() {
   return (
     <div className='flex overflow-hidden relative'>
       <button className="bx bx-left-arrow-circle text-main text-[50px]" onClick={handlePrev}></button>
-      <div className='flex items-center w-[800px] justify-center gap-[30px]'>
+      <div className='flex items-center fi:w-[800px] justify-center gap-[30px]'>
         {actors.slice(visibleActors.start, visibleActors.end).map((actor, index) => (
           <div key={index}>
             <img
-              className='w-[120px] h-[120px] object-cover rounded-full'
+              className='fi:w-[120px] fi:h-[120px] sr:w-[80px] sr:h-[80px] object-cover rounded-full'
               src={actor.profile_path !== null ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}` : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'}
               alt="actor"
             />

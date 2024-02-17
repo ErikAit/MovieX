@@ -29,6 +29,8 @@ export default {
 
         cd2: '1094px',
 
+        fi: '1365px',
+
         pg: '647px',
 
         sr: '600px',

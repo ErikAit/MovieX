@@ -26,14 +26,14 @@ export default function FilmInfo() {
         {film.map((genre) => {
           if (genre.id === +filmId) {
             return (
-              <div key={filmId} className='flex'>
+              <div key={filmId} className='flex fi:justify-between fi:flex-row mn:flex-col mn:items-center'>
                 <div>
                   <img
                     className='w-[400px] h-[500px] rounded-[30px] object-cover'
                     src={genre.backdrop_path !== null ? `https://image.tmdb.org/t/p/w500/${genre.backdrop_path}` : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'} alt="" />
                 </div>
 
-                <div className='content ml-[14rem]'>
+                <div className='content'>
                   <h2 className='font-[700] text-[40px] text-main'>{genre.original_title}</h2>
                   <p className='py-[36px] text-white font-[500] text-[24px]'>
                     <i className='bx bx-time-five text-[50px] text-main align-middle pr-5'></i>

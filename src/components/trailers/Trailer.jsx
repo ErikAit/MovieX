@@ -24,7 +24,7 @@ function Trailer() {
   return (
     <div className='py-[30px]'>
       <h2 className='text-center text-white text-[40px] font-[700]'>Trailers</h2>
-      <div className='flex justify-between pt-[40px]'>
+      <div className='flex mn:justify-center mn:gap-[18px] fi:gap-0 fi:justify-between flex-wrap pt-[40px]'>
         {trailers.map((video, index) => {
           if (index < 4) {
             return (
