@@ -48,8 +48,8 @@ function Trailer() {
       {selectedVideo && (
         <div className="popup z-[100] w-full h-screen fixed top-0 left-0 bg-header">
           <i onClick={closeVideoPopup} className='bx bx-x text-[40px] m-2 float-end text-white'></i>
-          <div className='flex h-full justify-center items-center'>
-            <iframe width="860" height="515" src={`https://www.youtube.com/embed/${selectedVideo}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+          <div className='flex w-full h-full justify-center items-center'>
+            <iframe className='im:w-[860px] im:h-[515px] mn:w-[500px] mn:h-[400px]' src={`https://www.youtube.com/embed/${selectedVideo}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
           </div>
         </div>
       )}
