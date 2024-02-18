@@ -26,19 +26,26 @@ export default function FilmImage() {
       {movies.slice(0, 3).map((film, index) => {
         const isFirst = index === 0;
         return (
-          <div key={film.id} className={`relative`}>
-            <Link to={`/film/?${film.id}/?${film.original_title.split(' ')[0]}`}>
-              <div
-                style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500/${film.backdrop_path})` }}
-                className={`im:w-[${isFirst ? 820 : 400}px] ct:w-[300px] ct:h-[400px] mn:w-[400px] h-[500px] bg-cover bg-center rounded-[30px] border-main border-[2px]`}
-              ></div>
-            </Link>
-            {isFirst && (
+          isFirst ?
+            <div key={film.id} className={`relative`}>
+              <Link to={`/film/?${film.id}/?${film.original_title.split(' ')[0]}`}>
+                <div
+                  style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500/${film.backdrop_path})` }}
+                  className={`im:w-[820px] ct:w-[300px] ct:h-[400px] mn:w-[400px] h-[500px] bg-cover bg-center rounded-[30px] border-main border-[2px]`}
+                ></div>
+              </Link>
               <button className='text-black bg-main hidden cd2:block font-[600] w-[160px] h-[60px] rounded-[50px] absolute im:left-[620px] im:top-[300px]'>
                 Watch now
               </button>
-            )}
-          </div>
+            </div> :
+            <div key={film.id} className={`relative`}>
+              <Link to={`/film/?${film.id}/?${film.original_title.split(' ')[0]}`}>
+                <div
+                  style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500/${film.backdrop_path})` }}
+                  className={`im:w-[400px] ct:w-[300px] ct:h-[400px] mn:w-[400px] h-[500px] bg-cover bg-center rounded-[30px] border-main border-[2px]`}
+                ></div>
+              </Link>
+            </div>
         );
       })}
     </div>
