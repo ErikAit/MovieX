@@ -6,7 +6,7 @@ function Film({ film }) {
 
   return (
     <div className='film-card relative w-[400px] h-[560px] rounded-[30px] border-[2px] border-main'>
-      <Link to={`/film/?${film.id}/?${film.title.split(' ')[0]}`}>
+      <Link to={`/film/?${film.id}/?${film.title}`}>
         <img className='w-[350px] h-[400px] mx-auto mt-[30px] rounded-[30px] object-cover'
           src={film.backdrop_path !== null ? `https://image.tmdb.org/t/p/w500/${film.backdrop_path}` : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'} alt="film" />
       </Link>

@@ -26,7 +26,7 @@ export default function FilmInfo() {
         {film.map((genre) => {
           if (genre.id === +filmId) {
             return (
-              <div key={filmId} className='flex fi:justify-between fi:flex-row mn:flex-col mn:items-center'>
+              <div key={genre.id} className='flex fi:justify-between fi:flex-row mn:flex-col mn:items-center'>
                 <div>
                   <img
                     className='w-[400px] h-[500px] rounded-[30px] object-cover'

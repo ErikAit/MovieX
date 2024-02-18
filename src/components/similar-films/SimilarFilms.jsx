@@ -1,22 +1,14 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NotFound from '../film-not-found/Error';
 import Loading from '../loading/Loading';
 import Category from '../category/Category';
-
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
 
 function SimilarFilms() {
   const [similar, setSimilar] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const filmId = location.href.split('?')[1].replace('/', '');
-  const film_title = location.href.split('?')[2];
+  const filmId = location.href.split('?')[1].replace('/', '').toString();
+  const film_title = location.href.split('?')[2].replace(/%20/g, '');
 
   useEffect(() => {
     setIsLoading(true)
@@ -46,4 +38,4 @@ function SimilarFilms() {
   );
 }
 
-export default memo(SimilarFilms);
+export default SimilarFilms;

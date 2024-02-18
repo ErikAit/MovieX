@@ -1,16 +1,22 @@
 import React, { memo, useEffect, useState } from 'react';
+import Loading from '../loading/Loading';
 
 function FilmActors() {
   const [actors, setActors] = useState([]);
   const [visibleActors, setVisibleActors] = useState({ start: 0, end: 5 });
+  const [isLoading, setIsLoading] = useState(true);
+
   const filmId = location.href.split('?')[1];
 
   useEffect(() => {
+    setIsLoading(true)
+
     fetch(`https://api.themoviedb.org/3/movie/${filmId}/credits?api_key=d91b4b2e8fb2707acd809975c49bcf87`)
       .then((res) => res.json())
       .then((res) => {
         setActors(res.cast);
-      });
+      })
+      .finally(() => setIsLoading(false))
   }, [filmId]);
 
   const handleNext = () => {
@@ -29,6 +35,7 @@ function FilmActors() {
 
   return (
     <div className='flex overflow-hidden relative'>
+      {isLoading && <Loading />}
       <button className="bx bx-left-arrow-circle text-main text-[50px]" onClick={handlePrev}></button>
       <div className='flex items-center fi:w-[800px] justify-center gap-[30px]'>
         {actors.slice(visibleActors.start, visibleActors.end).map((actor, index) => (
