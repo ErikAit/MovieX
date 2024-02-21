@@ -9,7 +9,6 @@ function SimilarFilms() {
 
   const filmId = location.href.split('?')[1].replace('/', '');
   const film_title = location.href.split('?')[2].replace(/20%/g, '');
-  console.log(film_title);
 
   useEffect(() => {
     setIsLoading(true)

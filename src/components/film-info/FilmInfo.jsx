@@ -3,7 +3,7 @@ import FilmActors from '../film-actors/FilmActors';
 import Trailer from '../trailers/Trailer';
 import Loading from '../loading/Loading';
 
-export default function FilmInfo() {
+function FilmInfo() {
   const [film, setFilm] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -15,7 +15,7 @@ export default function FilmInfo() {
     fetch(`https://api.themoviedb.org/3/movie/${filmId}?api_key=d91b4b2e8fb2707acd809975c49bcf87`)
       .then((res) => res.json())
       .then((res) => {
-        setFilm([...film, res]);
+        setFilm([res]);
       }).finally(() => setIsLoading(false))
   }, [filmId]);
 
@@ -23,10 +23,10 @@ export default function FilmInfo() {
     <div>
       {isLoading && <Loading />}
       <div>
-        {film.map((genre) => {
+        {film.map((genre, index) => {
           if (genre.id === +filmId) {
             return (
-              <div key={genre.id} className='flex fi:justify-between fi:flex-row mn:flex-col mn:items-center'>
+              <div key={index} className='flex fi:justify-between fi:flex-row mn:flex-col mn:items-center'>
                 <div>
                   <img
                     className='w-[400px] h-[500px] rounded-[30px] object-cover'
@@ -63,3 +63,5 @@ export default function FilmInfo() {
     </div>
   );
 }
+
+export default FilmInfo

@@ -7,7 +7,6 @@ function Trailer() {
   const [isLoading, setIsLoading] = useState(true);
 
   const filmId = location.href.split('?')[1].replace('/', '');
-  console.log(filmId);
 
   useEffect(() => {
     setIsLoading(true)
