@@ -18,7 +18,7 @@ export default function HomePage() {
   useEffect(() => {
     setIsLoading(true)
 
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=d91b4b2e8fb2707acd809975c49bcf87&query=`)
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=d91b4b2e8fb2707acd809975c49bcf87`)
       .then((res) => res.json())
       .then((res) => {
         setPopularMovies(shuffleArray(res.results));

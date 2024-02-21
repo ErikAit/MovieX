@@ -13,7 +13,7 @@ export default function FilmImage() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=d91b4b2e8fb2707acd809975c49bcf87&query=`)
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=d91b4b2e8fb2707acd809975c49bcf87`)
       .then((res) => res.json())
       .then((res) => {
         setMovies(shuffleArray(res.results));
